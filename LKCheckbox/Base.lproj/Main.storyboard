@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LKCheckbox" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="wqa-TG-gZs">
+                                <rect key="frame" x="162.5" y="121" width="50" height="425"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NFL-BL-NaY" customClass="CheckBox" customModule="LKCheckbox" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="NFL-BL-NaY" secondAttribute="height" multiplier="1:1" id="0hO-KV-ufE"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="uncheckedBorderColor">
+                                                <color key="value" red="1" green="0.79568460480000003" blue="0.8282369087" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="checkedBorderColor">
+                                                <color key="value" red="0.016995774580000001" green="0.48766422269999998" blue="0.99898439650000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="checkmarkColor">
+                                                <color key="value" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isChecked" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PeP-lK-WnN" customClass="CheckBox" customModule="LKCheckbox" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="125" width="50" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="uncheckedBorderColor">
+                                                <color key="value" red="1" green="0.79568460480000003" blue="0.8282369087" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="checkedBorderColor">
+                                                <color key="value" red="0.016995774580000001" green="0.48766422269999998" blue="0.99898439650000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="checkmarkColor">
+                                                <color key="value" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isChecked" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1k8-23-qT5" customClass="CheckBox" customModule="LKCheckbox" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="250" width="50" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <viewLayoutGuide key="safeArea" id="GiM-4j-tPO"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="uncheckedBorderColor">
+                                                <color key="value" red="1" green="0.79568460480000003" blue="0.8282369087" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="checkedBorderColor">
+                                                <color key="value" red="0.016995774580000001" green="0.48766422269999998" blue="0.99898439650000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="checkmarkColor">
+                                                <color key="value" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isChecked" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFi-a4-BJ0" customClass="CheckBox" customModule="LKCheckbox" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="375" width="50" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <viewLayoutGuide key="safeArea" id="bJ4-GG-BQ0"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="uncheckedBorderColor">
+                                                <color key="value" red="1" green="0.79568460480000003" blue="0.8282369087" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="checkedBorderColor">
+                                                <color key="value" red="0.016995774580000001" green="0.48766422269999998" blue="0.99898439650000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="checkmarkColor">
+                                                <color key="value" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isChecked" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="PeP-lK-WnN" firstAttribute="height" secondItem="NFL-BL-NaY" secondAttribute="height" id="711-UT-f7m"/>
+                                    <constraint firstItem="cFi-a4-BJ0" firstAttribute="height" secondItem="NFL-BL-NaY" secondAttribute="height" id="9ad-AQ-2tq"/>
+                                    <constraint firstItem="1k8-23-qT5" firstAttribute="width" secondItem="NFL-BL-NaY" secondAttribute="width" id="BgS-Ne-kc6"/>
+                                    <constraint firstItem="cFi-a4-BJ0" firstAttribute="width" secondItem="NFL-BL-NaY" secondAttribute="width" id="HYN-oM-eZK"/>
+                                    <constraint firstItem="PeP-lK-WnN" firstAttribute="width" secondItem="NFL-BL-NaY" secondAttribute="width" id="IOd-bt-Dsc"/>
+                                    <constraint firstItem="1k8-23-qT5" firstAttribute="height" secondItem="NFL-BL-NaY" secondAttribute="height" id="LyF-S6-Wx3"/>
+                                    <constraint firstAttribute="width" constant="50" id="lLz-iB-xqK"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="wqa-TG-gZs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ghw-hY-Avd"/>
+                            <constraint firstItem="wqa-TG-gZs" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ZKw-Jf-0XS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="cb1" destination="NFL-BL-NaY" id="kq4-wx-fw5"/>
+                        <outlet property="cb2" destination="PeP-lK-WnN" id="yoK-ov-bLn"/>
+                        <outlet property="cb3" destination="1k8-23-qT5" id="tLc-v0-gTk"/>
+                        <outlet property="cb4" destination="cFi-a4-BJ0" id="1VR-4M-kjg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="115.59220389805098"/>
+        </scene>
+    </scenes>
+</document>
