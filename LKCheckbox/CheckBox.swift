@@ -40,7 +40,6 @@ open class CheckBox: UIControl {
     }
     
     var style: Style = .circle
-    
     var borderStyle: BorderStyle = .roundedSquare(radius: 8)
     
     @IBInspectable
@@ -84,18 +83,18 @@ open class CheckBox: UIControl {
     
     private func setupViews() {
         
+        self.backgroundColor = .clear
         
-    
     }
     
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        self.feedbackGenerator = UIImpactFeedbackGenerator.init(style: .heavy)
+        self.feedbackGenerator = UIImpactFeedbackGenerator.init(style: .light)
         self.feedbackGenerator?.prepare()
     }
     
     open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        super.touchesEnded(touches, with: event)
+        //        super.touchesEnded(touches, with: event)
         
         self.isChecked = !isChecked
         self.sendActions(for: .valueChanged)
@@ -110,7 +109,7 @@ open class CheckBox: UIControl {
         let newRect = rect.insetBy(dx: borderWidth / 2, dy: borderWidth / 2)
         
         let context = UIGraphicsGetCurrentContext()!
-        context.setStrokeColor(self.isChecked ? checkedBorderColor.cgColor : uncheckedBorderColor.cgColor)
+        context.setStrokeColor(self.isChecked ? checkedBorderColor.cgColor : tintColor.cgColor)
         context.setFillColor(checkboxBackgroundColor.cgColor)
         context.setLineWidth(borderWidth)
         
@@ -118,20 +117,13 @@ open class CheckBox: UIControl {
         switch self.borderStyle {
         case .square:
             shapePath = UIBezierPath(rect: newRect)
-            
-            print("Square")
         case .roundedSquare(let radius):
             shapePath = UIBezierPath(roundedRect: newRect, cornerRadius: radius)
-            
-            print("Square with rad \(radius)")
         case .rounded:
             shapePath = UIBezierPath.init(ovalIn: newRect)
-            
-            print("Circle")
         }
         
         context.addPath(shapePath.cgPath)
-        
         context.strokePath()
         context.fillPath()
         
@@ -147,7 +139,6 @@ open class CheckBox: UIControl {
             case .tick:
                 self.drawCheckMark(frame: newRect)
             }
-            
         }
     }
     
@@ -170,8 +161,6 @@ open class CheckBox: UIControl {
     }
     
     func drawCheckMark(frame: CGRect) {
-        //// Color Declarations
-        let color3 = UIColor(red: 0.055, green: 0.811, blue: 0.055, alpha: 1.000)
         
         //// Bezier Drawing
         let bezierPath = UIBezierPath()
@@ -181,7 +170,7 @@ open class CheckBox: UIControl {
         bezierPath.addLine(to: CGPoint(x: frame.minX + 0.78000 * frame.width, y: frame.minY + 0.30000 * frame.height))
         bezierPath.addLine(to: CGPoint(x: frame.minX + 0.44000 * frame.width, y: frame.minY + 0.76000 * frame.height))
         bezierPath.addCurve(to: CGPoint(x: frame.minX + 0.20000 * frame.width, y: frame.minY + 0.58000 * frame.height), controlPoint1: CGPoint(x: frame.minX + 0.44000 * frame.width, y: frame.minY + 0.76000 * frame.height), controlPoint2: CGPoint(x: frame.minX + 0.26000 * frame.width, y: frame.minY + 0.62000 * frame.height))
-        color3.setFill()
+        checkmarkColor.setFill()
         bezierPath.fill()
     }
     
@@ -190,27 +179,24 @@ open class CheckBox: UIControl {
         // This non-generic function dramatically improves compilation times of complex expressions.
         func fastFloor(_ x: CGFloat) -> CGFloat { return floor(x) }
         
-        //// Color Declarations
-        let color4 = UIColor(red: 0.097, green: 0.802, blue: 0.417, alpha: 1.000)
-        
         //// Oval Drawing
         let ovalPath = UIBezierPath(ovalIn: CGRect(x: frame.minX + fastFloor(frame.width * 0.22000 + 0.5), y: frame.minY + fastFloor(frame.height * 0.22000 + 0.5), width: fastFloor(frame.width * 0.76000 + 0.5) - fastFloor(frame.width * 0.22000 + 0.5), height: fastFloor(frame.height * 0.78000 + 0.5) - fastFloor(frame.height * 0.22000 + 0.5)))
-        color4.setFill()
+        checkmarkColor.setFill()
         ovalPath.fill()
     }
-
-
+    
     func drawInnerSquare(frame: CGRect) {
         //// General Declarations
         // This non-generic function dramatically improves compilation times of complex expressions.
         func fastFloor(_ x: CGFloat) -> CGFloat { return floor(x) }
         
-        //// Color Declarations
-        let color5 = UIColor(red: 0.089, green: 0.847, blue: 0.498, alpha: 1.000)
-        
         //// Rectangle Drawing
-        let rectanglePath = UIBezierPath(rect: CGRect(x: frame.minX + fastFloor(frame.width * 0.22000 + 0.5), y: frame.minY + fastFloor(frame.height * 0.26000 + 0.5), width: fastFloor(frame.width * 0.76000 + 0.5) - fastFloor(frame.width * 0.22000 + 0.5), height: fastFloor(frame.height * 0.76000 + 0.5) - fastFloor(frame.height * 0.26000 + 0.5)))
-        color5.setFill()
+        let padding = self.bounds.width * 0.3
+        let innerRect = frame.inset(by: .init(top: padding, left: padding, bottom: padding, right: padding))
+        let rectanglePath = UIBezierPath.init(roundedRect: innerRect, cornerRadius: 3)
+        
+        //        let rectanglePath = UIBezierPath(rect: CGRect(x: frame.minX + fastFloor(frame.width * 0.22000 + 0.15), y: frame.minY + fastFloor(frame.height * 0.26000 + 0.15), width: fastFloor(frame.width * 0.76000 + 0.15) - fastFloor(frame.width * 0.22000 + 0.15), height: fastFloor(frame.height * 0.76000 + 0.15) - fastFloor(frame.height * 0.26000 + 0.15)))
+        checkmarkColor.setFill()
         rectanglePath.fill()
     }
     
@@ -220,13 +206,8 @@ open class CheckBox: UIControl {
         // This non-generic function dramatically improves compilation times of complex expressions.
         func fastFloor(_ x: CGFloat) -> CGFloat { return floor(x) }
         
-        //// Color Declarations
-        let color3 = UIColor(red: 0.055, green: 0.811, blue: 0.055, alpha: 1.000)
-        
-        
         //// Subframes
         let group: CGRect = CGRect(x: frame.minX + fastFloor((frame.width - 17.37) * 0.49035 + 0.5), y: frame.minY + fastFloor((frame.height - 23.02) * 0.51819 - 0.48) + 0.98, width: 17.37, height: 23.02)
-        
         
         //// Group
         //// Rectangle Drawing
@@ -235,11 +216,10 @@ open class CheckBox: UIControl {
         context.rotate(by: 35 * CGFloat.pi/180)
         
         let rectanglePath = UIBezierPath(rect: CGRect(x: 0, y: 0, width: 3, height: 26))
-        color3.setFill()
+        checkmarkColor.setFill()
         rectanglePath.fill()
         
         context.restoreGState()
-        
         
         //// Rectangle 2 Drawing
         context.saveGState()
@@ -247,10 +227,9 @@ open class CheckBox: UIControl {
         context.rotate(by: -35 * CGFloat.pi/180)
         
         let rectangle2Path = UIBezierPath(rect: CGRect(x: 0, y: 0, width: 3, height: 26))
-        color3.setFill()
+        checkmarkColor.setFill()
         rectangle2Path.fill()
         
         context.restoreGState()
     }
-
 }
